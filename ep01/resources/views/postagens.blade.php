@@ -18,13 +18,12 @@
         
         
         <!-- Stylesheets -->
-        <link rel="stylesheet" href="../bootstrap/bootstrap.css">
-        <link rel="stylesheet" href="../css/misc.css">
-        <link rel="stylesheet" href="../css/blue-scheme.css">
+        <link rel="stylesheet" href="css/app.css">
+   
         
         <!-- JavaScripts -->
-        <script src="../js/jquery-1.10.2.min.js"></script>
-        <script src="../js/jquery-migrate-1.2.1.min.js"></script>
+{{--        <script src="../js/jquery-1.10.2.min.js"></script>--}}
+{{--        <script src="../js/jquery-migrate-1.2.1.min.js"></script>--}}
         
         <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon"/>
     
@@ -172,7 +171,7 @@
                                 @foreach($posts as $post)
                                     <div class="post-blog">
                                         <div class="blog-image">
-                                            <a href="blog-single.html">
+                                            <a href="{!! route('posts.show', ['post' => $post->id]) !!}">
                                                 <img src="images/includes/blog1.jpg" alt="">
                                             </a>
                                         </div> <!-- /.blog-image -->
@@ -187,63 +186,15 @@
                                                 <a href="#">{!! $post->author !!}</a>
                                             </span>
                                             <h3>
-                                                <a href="blog-single.html">{!! $post->title !!}</a>
+                                                <a href="{!! route('posts.show', ['post' => $post->id]) !!}">{!! $post->title !!}</a>
                                             </h3>
                                             {!! $post->synopsis !!}
-                                            <a href="blog-single.html">Continue Reading...</a>
+                                            <a href="{!! route('posts.show', ['post' => $post->id]) !!}">Continue Reading...</a>
                                         </div> <!-- /.blog-content -->
                                     </div> <!-- /.post-blog -->
                                 @endforeach
                                 
-                                
-                                {{--                            <div class="post-blog">--}}
-                                {{--                                <div class="blog-image">--}}
-                                {{--                                    <a href="blog-single.html">--}}
-                                {{--                                        <img src="images/includes/blog2.jpg" alt="">--}}
-                                {{--                                    </a>--}}
-                                {{--                                </div> <!-- /.blog-image -->--}}
-                                {{--                                <div class="blog-content">--}}
-                                {{--                                    <span class="meta-date"><a href="#">24 February 2084</a></span>--}}
-                                {{--                                    <span class="meta-comments"><a href="#">32 Comments</a></span>--}}
-                                {{--                                    <span class="meta-author"><a href="#">Candy Sharp</a></span>--}}
-                                {{--                                    <h3><a href="blog-single.html">Bird Profile Wellington New Zealand</a></h3>--}}
-                                {{--                                    <p class="light-text">Sed consequat lobortis risus, in rutrum arcu tristique eget. Etiam accumsan lectus quis cursus porta.  Etiam a turpis sed sapien malesuada pellentesque quis id tortor.  Phasellus mattis quam enim, non accumsan nibh tincidunt sed.</p>--}}
-                                {{--                                    <p>Nunc ullamcorper nisi sit amet eros dictum, eget vulputate quam rhoncus. Nulla diam eros, ultrices id lacinia ut, aliquet sit amet erat. Duis ut nulla molestie, ullamcorper ligula eu, ultricies tortor. Suspendisse quis consequat a turpis sed sapien quis id tortor <a href="blog-single.html">Continue Reading...</a></p>--}}
-                                {{--                                </div> <!-- /.blog-content -->--}}
-                                {{--                            </div> <!-- /.post-blog -->--}}
-                                {{--                            --}}
-                                
-                                {{--                            <div class="post-blog">--}}
-                                {{--                                <div class="blog-image">--}}
-                                {{--                                    <a href="blog-single.html">--}}
-                                {{--                                        <img src="images/includes/blog3.jpg" alt="">--}}
-                                {{--                                    </a>--}}
-                                {{--                                </div> <!-- /.blog-image -->--}}
-                                {{--                                <div class="blog-content">--}}
-                                {{--                                    <span class="meta-date"><a href="#">20 February 2084</a></span>--}}
-                                {{--                                    <span class="meta-comments"><a href="#">64 Comments</a></span>--}}
-                                {{--                                    <span class="meta-author"><a href="#">Candy Sharp</a></span>--}}
-                                {{--                                    <h3><a href="blog-single.html">Standard Blog Post Formating Medigo</a></h3>--}}
-                                {{--                                    <p class="light-text">Sed consequat lobortis risus, in rutrum arcu tristique eget. Etiam accumsan lectus quis cursus porta.  Etiam a turpis sed sapien malesuada pellentesque quis id tortor.  Phasellus mattis quam enim, non accumsan nibh tincidunt sed.</p>--}}
-                                {{--                                    <p>Nunc ullamcorper nisi sit amet eros dictum, eget vulputate quam rhoncus. Nulla diam eros, ultrices id lacinia ut, aliquet sit amet erat. Duis ut nulla molestie, ullamcorper ligula eu, ultricies tortor. Suspendisse quis consequat a turpis sed sapien quis id tortor <a href="blog-single.html">Continue Reading...</a></p>--}}
-                                {{--                                </div> <!-- /.blog-content -->--}}
-                                {{--                            </div> <!-- /.post-blog -->--}}
-                                {{--                            <div class="post-blog">--}}
-                                {{--                                <div class="blog-image">--}}
-                                {{--                                    <a href="blog-single.html">--}}
-                                {{--                                        <img src="images/includes/blog4.jpg" alt="">--}}
-                                {{--                                    </a>--}}
-                                {{--                                </div> <!-- /.blog-image -->--}}
-                                {{--                                <div class="blog-content">--}}
-                                {{--                                    <span class="meta-date"><a href="#">24 February 2084</a></span>--}}
-                                {{--                                    <span class="meta-comments"><a href="#">128 Comments</a></span>--}}
-                                {{--                                    <span class="meta-author"><a href="#">Candy Sharp</a></span>--}}
-                                {{--                                    <h3><a href="blog-single.html">Hochbunker High Definition Photography</a></h3>--}}
-                                {{--                                    <p class="light-text">Sed consequat lobortis risus, in rutrum arcu tristique eget. Etiam accumsan lectus quis cursus porta.  Etiam a turpis sed sapien malesuada pellentesque quis id tortor.  Phasellus mattis quam enim, non accumsan nibh tincidunt sed.</p>--}}
-                                {{--                                    <p>Nunc ullamcorper nisi sit amet eros dictum, eget vulputate quam rhoncus. Nulla diam eros, ultrices id lacinia ut, aliquet sit amet erat. Duis ut nulla molestie, ullamcorper ligula eu, ultricies tortor. Suspendisse quis consequat a turpis sed sapien quis id tortor <a href="blog-single.html">Continue Reading...</a></p>--}}
-                                {{--                                </div> <!-- /.blog-content -->--}}
-                                {{--                            </div> <!-- /.post-blog -->--}}
-                                {{--                        </div> <!-- /.col-md-12 -->--}}
+                             
                                 <div class="col-md-12">
                                     <ul class="pages">
                                         <li>
@@ -403,8 +354,8 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
                     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
                     crossorigin="anonymous"></script>
-            <script src="../js/min/plugins.min.js"></script>
-            <script src="../js/min/medigo-custom.min.js"></script>
+            
+            <script src="js/app.js"></script>
         </div>
     </body>
 </html>

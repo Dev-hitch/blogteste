@@ -15,7 +15,7 @@ use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('postagens');
+    return view('welcome');
 });
 Route::get('/admin', 'AuthController@dashboard')->name('admin');
 Route::get('/admin/login', 'AuthController@login')->name('admin.login');
