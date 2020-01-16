@@ -45,9 +45,13 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
 
-        $user->save();
-
-        return redirect('/');
+        if($user->save())
+            return redirect('/')
+                ->with('success', 'Sucesso!');
+        else
+            return redirect()
+                ->back()
+                ->with('error', 'Falha!');
     }
 
     /**
@@ -105,6 +109,52 @@ class UserController extends Controller
     {
         // view não criada
         $user->delete();
-        return redirect()->route('users.index');
+
+        if($user->delete())
+        return redirect()->route('users.index')
+            ->with('success', 'Sucesso ao atualizar!');
+        else
+        return redirect()
+            ->back()
+            ->with('error', 'Falha ao atualizar!');
+    }
+
+
+    public function profileUpdate(Request $request)
+    {
+        $post = auth()->user();
+
+        $data = $request->all();
+
+        if ($data['password'] != null)
+            $data['password'] = bcrypt($data['password']);
+        else
+            unset($data['password']);
+
+        $data['image'] = $user->image;
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            if ($user->image)
+                $name = $user->image;
+            else
+                $name =$user->id.kebab_case($user->name);
+
+            $extention = $request->image->extension();
+            $nameFile = "{$name}.{$extention}";
+
+        }
+
+        $update = $user->update($data);
+
+        if ($update)
+            return redirect()
+                ->route('profile')
+                ->with('success', 'Sucesso ao atualizar!');
+
+        return redirect()
+            ->back()
+            ->with('error', 'Falha ao atualizar!');
+
+
     }
 }

@@ -17,7 +17,7 @@
         <link href="http://fonts.googleapis.com/css?family=Raleway:400,900,800,700,500,200,100,600" rel="stylesheet">
         
         <!-- Stylesheets -->
-        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="/css/app.css">
   
         
 {{--        <!-- JavaScripts -->--}}
@@ -345,7 +345,7 @@
         </footer> <!-- /.site-footer -->
         
         <!-- Scripts -->
-        <script src="js/app.js"></script>
+        <script src="/js/app.js"></script>
  
     
     </body>

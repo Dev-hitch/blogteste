@@ -39,10 +39,10 @@
                 text-transform: uppercase;
             }
             
-             input {
+            input {
                 margin: 15px;
-                 width: 300px;
-                 height: 30px;
+                width: 300px;
+                height: 30px;
                 color: #636b6f;
                 padding: 0 25px;
                 font-size: 13px;
@@ -51,7 +51,7 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-       
+            
             
             .m-b-md {
                 margin-bottom: 30px;
@@ -66,7 +66,7 @@
             </div>
             
             <div class="conteudo">
-                <form action="{!! route('users.store') !!}" method="post">
+                <form action="{!! route('users.store') !!}" method="post" enctype="multipart/form-data">
                     @csrf
                     <label for="">Nome</label>
                     <input type="text" name="name" required><br>
@@ -76,6 +76,9 @@
                     
                     <label for="">Senha</label>
                     <input type="password" name="password" required><br>
+                    
+                    <label for="exampleFormControlFile1">Imagem</label>
+                    <input type="file" class="form-control-file" name="image" id="exampleFormControlFile1">
                     
                     <input type="submit" value="Cadastrar">
                 
